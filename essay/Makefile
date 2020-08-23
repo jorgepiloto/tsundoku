@@ -1,6 +1,9 @@
 # Renders final PDF output file
 
-.PHONY: pdf
+
+LATEX_FORM_FILE=latex_formatter.yaml
+
+.PHONY: format pdf
 
 FILES=`cat index.txt`
 
@@ -12,3 +15,11 @@ pdf:
 	  --out          report.pdf   \
 	  --pdf-engine   xelatex      \
 	  $(FILES)
+
+format:
+	@echo "Formatting files..."
+	latexindent cover.tex -s -o cover.tex -y="defaultIndent: '  '"
+	@echo "Deleting log file..."
+	rm -f indent.log
+	@echo "Done!"
+
