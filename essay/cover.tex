@@ -1,0 +1,37 @@
+% Start generating the title page *%
+\begin{titlepage}
+
+  % All content will be centered within this page %
+  \begin{center}
+
+    % Use Cinnabar color for title %
+    \definecolor{titlecolor}{rgb}{0.89, 0.26, 0.2}
+
+    % Title of the essay %
+    {
+      % Apply font size and color %
+      \fontsize{60pt}{70pt}\selectfont
+      \textcolor{titlecolor}
+      {{{cookiecutter.essay_title}}}\\[2cm]
+    }
+
+    % Subtitle of the essay %
+    \textsc{\huge
+      {{cookiecutter.essay_subtitle}}
+    }\\[0.5cm]
+
+    % Author of the essay %
+    \emph{}\\[0.1cm]
+    \noindent\makebox[\textwidth]{%
+      \begin{tabular}{lr}%
+        {{cookiecutter.essay_author}} \\
+      \end{tabular}}\\[1cm]
+
+    % Void fill all necessary space %
+    \vfill
+
+    % Add last modification date %
+    {\large \today}
+
+  \end{center}
+\end{titlepage}
