@@ -5,7 +5,7 @@ LATEX_FORM_FILE=latex_formatter.yaml
 
 .PHONY: format pdf
 
-FILES=`cat index.txt`
+FILES=`cat toctree.txt`
 
 pdf:
 	pandoc                        \
