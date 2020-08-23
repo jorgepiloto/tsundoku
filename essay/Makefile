@@ -23,3 +23,8 @@ format:
 	rm -f indent.log
 	@echo "Done!"
 
+clean:
+	@echo "Cleaning output files..."
+	rm -rf $(OUT_DIR)
+	@echo "Done!"
+
