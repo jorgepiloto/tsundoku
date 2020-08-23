@@ -22,12 +22,31 @@
 \usepackage{longtable,booktabs}
 \usepackage{graphicx}
 \usepackage{grffile}
+\usepackage{float}
 \usepackage[normalem]{ulem}
 \usepackage[setpagesize=false,
             unicode=false,
             colorlinks=true,
             urlcolor=blue,
             linkcolor=black]{hyperref}
+
+% Path for the images
+\usepackage{graphicx}
+\graphicspath{{fig/}}
+
+% Number figures, tables and equations within sections
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+% Properly place figures %
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
 
 
 % Polyglossia settings
@@ -73,13 +92,20 @@ $highlighting-macros$
 % -----------------
 \begin{document}
 
-\input{cover}
+% Switch off page numbering %
+\pagenumbering{gobble}
+
+\input{src/cover}
+\input{src/prologue}
 
 % chapter: 0, section: 1, subsection: 2 etc
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
+
+% Start the table of contents and page numbering %
 \tableofcontents
 
+\pagenumbering{arabic}
 $body$
 
 \end{document}

@@ -2,18 +2,21 @@
 
 
 LATEX_FORM_FILE=latex_formatter.yaml
+OUT_DIR=out
 
 .PHONY: format pdf
 
 FILES=`cat toctree.txt`
 
 pdf:
-	pandoc                        \
-	  --from         markdown     \
-	  --to           latex        \
-	  --template     template.tex \
-	  --out          report.pdf   \
-	  --pdf-engine   xelatex      \
+	@mkdir -p $(OUT_DIR)
+	pandoc                        		\
+	  --from         markdown     		\
+	  --to           latex        		\
+	  --out          $(OUT_DIR)/report.pdf 	\
+	  --template     template.tex 		\
+	  --pdf-engine   xelatex      		\
+	  --resource-path=.:fig			\
 	  $(FILES)
 
 format:
