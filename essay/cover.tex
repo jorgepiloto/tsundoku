@@ -12,26 +12,27 @@
       % Apply font size and color %
       \fontsize{60pt}{70pt}\selectfont
       \textcolor{titlecolor}
-      {{{cookiecutter.essay_title}}}\\[2cm]
+      {TITLE OF THE ESSAY}\\[2cm]
     }
 
     % Subtitle of the essay %
     \textsc{\huge
-      {{cookiecutter.essay_subtitle}}
-    }\\[0.5cm]
+      SUBTITLE OF THE ESSAY
+    }\\[4cm]
+
+    % Add cover logo %
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=12cm]{logo.png}
+    \end{figure}
+
+    % Add some vertical padding %
+    \vspace{2cm}
 
     % Author of the essay %
-    \emph{}\\[0.1cm]
-    \noindent\makebox[\textwidth]{%
-      \begin{tabular}{lr}%
-        {{cookiecutter.essay_author}} \\
-      \end{tabular}}\\[1cm]
-
-    % Void fill all necessary space %
-    \vfill
-
-    % Add last modification date %
-    {\large \today}
+    \textsc{\Large
+      AUTHOR: CANIS LUPUS
+    }
 
   \end{center}
 \end{titlepage}
