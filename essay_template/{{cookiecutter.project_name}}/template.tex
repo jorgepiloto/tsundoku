@@ -2,7 +2,7 @@
 % !TEX encoding = UTF-8 Unicode
 
 % Define document font, paper size and type %
-\documentclass[12pt,a4paper]{scrreprt}
+\documentclass[12pt,{{cookiecutter.paper_size}}]{scrreprt}
 
 % Custom commands %
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
@@ -28,7 +28,12 @@
 
 % Path for all graphic utilities %
 \usepackage{graphicx}
-\graphicspath{{fig/}}
+\graphicspath{
+	{fig/}
+}
+
+% Fix listing errors
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % Number figures, tables and equations within sections %
 \numberwithin{equation}{section}
@@ -44,12 +49,18 @@
     \endorigfigure
 }
 
-% Polyglossia settings %
+{%- if cookiecutter.language == "spanish" -%}
+\setmainlanguage{spanish}
+
+{%- elif cookiecutter.language == "english" -%}
 \setmainlanguage{english}
-\addto\captionsenglish{%
+
+{% endif %}
+
+\addto\captionsenglish{
   \renewcommand{\contentsname}{Table of Contents}
 }
-\addto\captionsdanish{%
+\addto\captionsdanish{
   \renewcommand{\contentsname}{Indholdsfortegnelse}
 }
 
@@ -65,7 +76,6 @@ $highlighting-macros$
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
 % Make links footnotes instead of hotlinks %
-\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 
 % Avoid problems with \sout in headers with hyperref %
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
