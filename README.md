@@ -29,3 +29,9 @@ source files.
 Future ideas and improvements for this template are still being considered:
 check suitable font family, simplify LaTeX files, convert into cookiecutter
 project...
+
+Build your own template by simply running:
+
+```bash
+cookiecutter https://github.com/jorgepiloto/tsundoku/releases/download/0.1/essay_template.zip
+```
