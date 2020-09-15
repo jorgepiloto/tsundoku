@@ -23,12 +23,11 @@ pandoc.
 The table of contents is controlled by a file called `toctree.txt` which holds
 different links to markdown files inside the `src/` directory. Each one of those
 is assumed to be a chapter of the final essay. Any kind of figure must be placed
-inside the `fig/` directory in order to be properly linked once compiling all
-source files.
+inside the `fig/` directory in order to be properly linked once all source files
+are compiled.
 
 Future ideas and improvements for this template are still being considered:
-check suitable font family, simplify LaTeX files, convert into cookiecutter
-project...
+check suitable font family, simplify LaTeX files and improve code highlighting.
 
 Build your own template by simply running:
 
