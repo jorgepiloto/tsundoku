@@ -2,19 +2,19 @@
 % !TEX encoding = UTF-8 Unicode
 
 % Define document font, paper size and type %
-\documentclass[12pt,{{cookiecutter.paper_size}}]{scrreprt}
+\documentclass[twoside,twocolumn]{article}
 
 % Custom commands %
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
 % Packages to be used %
+\usepackage{titling} % Customizing the title section
 \usepackage{fontspec}
 \usepackage{eurosym}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{upquote}
 \usepackage{microtype}
-\usepackage{polyglossia}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx}
 \usepackage{grffile}
@@ -25,6 +25,10 @@
             colorlinks=true,
             urlcolor=blue,
             linkcolor=black]{hyperref}
+
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[english]{babel} % Language hyphenation and typographical rules
 
 % Path for all graphic utilities %
 \usepackage{graphicx}
@@ -47,21 +51,6 @@
     \expandafter\origfigure\expandafter[H]
 } {
     \endorigfigure
-}
-
-{%- if cookiecutter.language == "spanish" -%}
-\setmainlanguage{spanish}
-
-{%- elif cookiecutter.language == "english" -%}
-\setmainlanguage{english}
-
-{% endif %}
-
-\addto\captionsenglish{
-  \renewcommand{\contentsname}{Table of Contents}
-}
-\addto\captionsdanish{
-  \renewcommand{\contentsname}{Indholdsfortegnelse}
 }
 
 % Required for syntax highlighting %
@@ -95,25 +84,69 @@ $if(csl-refs)$
   {\par}
 $endif$
 
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+
+\usepackage{enumitem} % Customized lists
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Custom header} % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
+
+\pretitle{\begin{center}\Huge\bfseries} % Article title formatting
+\posttitle{\end{center}} % Article title closing formatting
+\title{Corrections to the U.S. Standard Atmosphere 1976 model} % Article title
+\author{%
+\textsc{John Smith}\\[1ex] % Your name
+\normalsize Undergraduate Aerospace Engineer \\ % Your institution
+\normalsize \href{mailto:john@smith.com}{john@smith.com} % Your email address
+%\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
+%\textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
+%\normalsize University of Utah \\ % Second author's institution
+%\normalsize \href{mailto:jane@smith.com}{jane@smith.com} % Second author's email address
+}
+\date{\today} % Leave empty to omit a date
+\renewcommand{\maketitlehookd}{%
+\begin{abstract}
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus
+	aliquam turpis, et vulputate arcu laoreet ac. Donec nec metus ornare leo
+	tempor vehicula. Nam sit amet porttitor felis. Sed tristique ullamcorper
+	imperdiet. Nulla rhoncus vestibulum dolor sit amet mattis. Donec nisi
+	quam, venenatis vitae sem id, ullamcorper sollicitudin elit. Curabitur
+	maximus velit tempus felis scelerisque, nec mattis est tincidunt.
+	Pellentesque nec cursus quam. Ut in lacus vitae enim egestas dignissim.
+\end{abstract}
+}
+
+
 %--- DOCUMENT IS DEFINED BELOW THIS LINE ---%
 \begin{document}
-
-% Switch off page numbering %
-\pagenumbering{gobble}
-
-% Append cover and prologue to actual document %
-\input{src/cover}
-\input{src/prologue}
+\maketitle
 
 % Controls document content depth by changing number: 0="chapter", 1="section" %
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
-
-% Start the table of contents and page numbering %
-\tableofcontents
-
-% Turn on again page numbering %
-\pagenumbering{arabic}
 
 % Add rest of content source files %
 $body$
