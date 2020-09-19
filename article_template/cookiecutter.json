@@ -1,0 +1,10 @@
+{
+    "project_name": "article",
+    "title_article": "TITLE OF THE ARTICLE",
+    "author_name": "AUTHOR OF THE PUBLICATION",
+    "author_role": "Author role or institution",
+    "author_email": "Author email or contact",
+    "date_article": "DD/MM/YYYY",
+    "language": ["english", "spanish"]
+}
+

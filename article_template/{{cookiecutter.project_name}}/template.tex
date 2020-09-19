@@ -1,0 +1,129 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+
+% Define document font, paper size and type %
+\documentclass[twoside,twocolumn]{article}
+
+% Custom commands %
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+% Packages to be used %
+\usepackage{titling} % Customizing the title section
+\usepackage{fontspec}
+\usepackage{eurosym}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{upquote}
+\usepackage{microtype}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+\usepackage[setpagesize=false,
+            unicode=false,
+            colorlinks=true,
+            urlcolor=blue,
+            linkcolor=black]{hyperref}
+
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+{%- if cookiecutter.language == "spanish" -%}
+	\usepackage[spanish] % Language hyphenation and typographical rules
+{%- elif cookiecutter.language == "english" -%}
+	\usepackage[english]{babel} % Language hyphenation and typographical rules
+{% endif %}
+
+% Path for all graphic utilities %
+\usepackage{graphicx}
+\graphicspath{
+	{fig/}
+}
+
+% Fix listing errors
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Number figures, tables and equations within sections %
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+% Properly place figures, similar to {figure}[h] %
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+% Required for syntax highlighting %
+$highlighting-macros$
+
+% Don't let images overflow the page %
+% Can still explicit set width/height/options for an image %
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% Make links footnotes instead of hotlinks %
+
+% Avoid problems with \sout in headers with hyperref %
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+
+% No paragraph indentation and set space between paragraphs %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+
+% Enable references and bibliography
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}%
+  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
+  {\par}
+$endif$
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+
+\usepackage{enumitem} % Customized lists
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Custom header} % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+\input{src/title.tex}
+
+
+%--- DOCUMENT IS DEFINED BELOW THIS LINE ---%
+\begin{document}
+\maketitle
+
+% Controls document content depth by changing number: 0="chapter", 1="section" %
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+% Add rest of content source files %
+$body$
+
+\end{document}
