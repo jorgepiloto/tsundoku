@@ -27,6 +27,12 @@ while figures and images do on `fig/` folder. Execute the `make` command within
 generated project folder to render final PDF file which holds a brief tutorial
 on main features of the template and how to use those.
 
+Build your own template by simply running:
+
+```bash
+cookiecutter https://github.com/jorgepiloto/tsundoku/releases/download/0.1/article_template.zip
+```
+
 Essay template
 --------------
 
