@@ -1,0 +1,121 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+
+% Define document font, paper size and type %
+\documentclass[12pt,{{cookiecutter.paper_size}}]{scrreprt}
+
+% Custom commands %
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+% Packages to be used %
+\usepackage{fontspec}
+\usepackage{eurosym}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{upquote}
+\usepackage{microtype}
+\usepackage{polyglossia}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+\usepackage[setpagesize=false,
+            unicode=false,
+            colorlinks=true,
+            urlcolor=blue,
+            linkcolor=black]{hyperref}
+
+% Path for all graphic utilities %
+\usepackage{graphicx}
+\graphicspath{
+	{fig/}
+}
+
+% Fix listing errors
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Number figures, tables and equations within sections %
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+% Properly place figures, similar to {figure}[h] %
+\usepackage{float}
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
+}
+
+{%- if cookiecutter.language == "spanish" -%}
+\setmainlanguage{spanish}
+
+{%- elif cookiecutter.language == "english" -%}
+\setmainlanguage{english}
+
+{% endif %}
+
+\addto\captionsenglish{
+  \renewcommand{\contentsname}{Table of Contents}
+}
+\addto\captionsdanish{
+  \renewcommand{\contentsname}{Indholdsfortegnelse}
+}
+
+% Required for syntax highlighting %
+$highlighting-macros$
+
+% Don't let images overflow the page %
+% Can still explicit set width/height/options for an image %
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% Make links footnotes instead of hotlinks %
+
+% Avoid problems with \sout in headers with hyperref %
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+
+% No paragraph indentation and set space between paragraphs %
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+
+% Enable references and bibliography
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}%
+  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
+  {\par}
+$endif$
+
+%--- DOCUMENT IS DEFINED BELOW THIS LINE ---%
+\begin{document}
+
+% Switch off page numbering %
+\pagenumbering{gobble}
+
+% Append cover and prologue to actual document %
+\input{src/cover}
+\input{src/prologue}
+
+% Controls document content depth by changing number: 0="chapter", 1="section" %
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+% Start the table of contents and page numbering %
+\tableofcontents
+
+% Turn on again page numbering %
+\pagenumbering{arabic}
+
+% Add rest of content source files %
+$body$
+
+\end{document}

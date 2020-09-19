@@ -1,0 +1,42 @@
+% Start generating the title page *%
+\begin{titlepage}
+
+  % All content will be centered within this page %
+  \begin{center}
+
+    % Use Cinnabar color for title %
+    \definecolor{titlecolor}{rgb}{0.89, 0.26, 0.2}
+
+    % Title of the essay %
+    {
+      % Apply font size and color %
+      \fontsize{60pt}{70pt}\selectfont
+      \textcolor{titlecolor}
+        {
+          {{cookiecutter.title_essay}}
+	}
+	\\[2cm]
+    }
+
+    % Subtitle of the essay %
+    \textsc{\huge
+	  {{cookiecutter.subtitle_essay}}
+    }
+    \\[4cm]
+
+    % Add cover logo %
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=12cm]{logo.png}
+    \end{figure}
+
+    % Add some vertical padding %
+    \vspace{1.5cm}
+
+    % Author of the essay %
+    \textsc{\Large
+      {{cookiecutter.author_essay}}
+    }
+
+  \end{center}
+\end{titlepage}
