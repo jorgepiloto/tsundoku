@@ -13,7 +13,7 @@ libraries or academical essays.
 Article template
 ----------------
 
-<img align="left" width="200px" src="screenshots/preview_article.png">
+<img align="left" width="200px" height="300px" src="screenshots/preview_article.png">
 
 Writing articles is the best way to share your scientific discoveries. This
 template focuses on writing content through simplicity but without loosing an
