@@ -2,7 +2,8 @@
     "project_name": "essay",
     "title_article": "TITLE OF THE ARTICLE",
     "author_name": "AUTHOR OF THE PUBLICATION",
-    "author_email": "jorge@on-orbit.dev",
+    "author_role": "Author role or institution",
+    "author_email": "Author email or contact",
     "date_article": "DD/MM/YYYY",
     "language": ["english", "spanish"]
 }
