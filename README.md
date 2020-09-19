@@ -10,6 +10,23 @@ libraries or academical essays.
 > completely read because of their insane amount.
 
 
+Article template
+----------------
+
+<img align="left" width="200px" src="screenshots/preview_article.png">
+
+Writing articles is the best way to share your scientific discoveries. This
+template focuses on writing content through simplicity but without loosing an
+academical layout. Notice that the article templates holds a two column
+structure, making it ideal for having a raw idea of the final report.
+
+As other templates located in this hub, it is based on the cookiecutter tool so
+you can easily setup your own settings: title, author name, role, contact,
+date... All article source text files are place inside the `src/` directory
+while figures and images do on `fig/` folder. Execute the `make` command within
+generated project folder to render final PDF file which holds a brief tutorial
+on main features of the template and how to use those.
+
 Essay template
 --------------
 
