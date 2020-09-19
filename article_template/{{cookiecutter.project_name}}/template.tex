@@ -28,7 +28,11 @@
 
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 
-\usepackage[english]{babel} % Language hyphenation and typographical rules
+{%- if cookiecutter.language == "spanish" -%}
+	\usepackage[spanish] % Language hyphenation and typographical rules
+{%- elif cookiecutter.language == "english" -%}
+	\usepackage[english]{babel} % Language hyphenation and typographical rules
+{% endif %}
 
 % Path for all graphic utilities %
 \usepackage{graphicx}

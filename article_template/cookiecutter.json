@@ -1,9 +1,9 @@
 {
     "project_name": "essay",
-    "title_essay": "TITLE OF THE ESSAY",
-    "subtitle_essay": "SUBTITLE OF THE ESSAY",
-    "author_essay": "AUTHOR OF THE PUBLICATION",
-    "language": ["english", "spanish"],
-    "paper_size": ["a4paper", "a5paper"]
+    "title_article": "TITLE OF THE ARTICLE",
+    "author_name": "AUTHOR OF THE PUBLICATION",
+    "author_email": "jorge@on-orbit.dev",
+    "date_article": "DD/MM/YYYY",
+    "language": ["english", "spanish"]
 }
 
