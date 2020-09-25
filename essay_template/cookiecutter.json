@@ -4,6 +4,7 @@
     "subtitle_essay": "SUBTITLE OF THE ESSAY",
     "author_essay": "AUTHOR OF THE PUBLICATION",
     "language": ["english", "spanish"],
-    "paper_size": ["a4paper", "a5paper"]
+    "paper_size": ["a4paper", "a5paper"],
+    "output_filename": "essay.pdf"
 }
 
