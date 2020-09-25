@@ -24,7 +24,7 @@ pdf:
 	  --from         markdown     		\
 	  --to           latex        		\
 	  --out          $(OUT_DIR)/$(OUT_FILE) \
-	  --template     $(TEX_FILE) 		\
+	  --template     $(TEX_DIR)/$(TEX_FILE) \
 	  --pdf-engine   xelatex      		\
 	  --resource-path=.:$(FIG_DIR)		\
 	  --highlight-style $(HIGHLIGHT_FILE)	\
