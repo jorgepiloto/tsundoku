@@ -1,5 +1,5 @@
-Essay template
-==============
+Article template
+================
 
 Within this directory you can find a collection of files which, one properly
 linked, generate a final PDF with an essay layout.
