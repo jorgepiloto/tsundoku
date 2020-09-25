@@ -1,8 +1,18 @@
 # Renders final PDF output file
+# -----------------------------
 
+# Important file names
+OUT_FILE = {{cookiecutter.output_filename}}
+TEX_FILE = template.tex
+BIB_FILE = biblio.bib
+HIGHLIGHT_FILE = highlight.theme
 
-LATEX_FORM_FILE=latex_formatter.yaml
-OUT_DIR=out
+# Main project directories
+SRC_DIR = src
+TEX_DIR = tex
+FIG_DIR = fig
+BIB_DIR = bib
+OUT_DIR = out
 
 .PHONY: format pdf
 
@@ -13,12 +23,12 @@ pdf:
 	pandoc                        		\
 	  --from         markdown     		\
 	  --to           latex        		\
-	  --out          $(OUT_DIR)/report.pdf 	\
-	  --template     template.tex 		\
+	  --out          $(OUT_DIR)/$(OUT_FILE) \
+	  --template     $(TEX_FILE) 		\
 	  --pdf-engine   xelatex      		\
-	  --resource-path=.:fig			\
-	  --highlight-style highlight.theme	\
-	  --bibliography biblio.bib		\
+	  --resource-path=.:$(FIG_DIR)		\
+	  --highlight-style $(HIGHLIGHT_FILE)	\
+	  --bibliography $(BIB_DIR)		\
 	  $(FILES)
 
 format:
