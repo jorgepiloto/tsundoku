@@ -17,7 +17,7 @@ pdf:
 	  --template     tex/template.tex 	\
 	  --pdf-engine   xelatex      		\
 	  --resource-path=.:fig			\
-	  --bibliography biblio.bib		\
+	  --bibliography bib/biblio.bib		\
 	  --highlight-style highlight.theme	\
 	  $(FILES)
 
