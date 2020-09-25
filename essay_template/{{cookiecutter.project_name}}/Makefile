@@ -18,6 +18,7 @@ pdf:
 	  --pdf-engine   xelatex      		\
 	  --resource-path=.:fig			\
 	  --highlight-style highlight.theme	\
+	  --bibliography biblio.bib		\
 	  $(FILES)
 
 format:
