@@ -11,6 +11,7 @@ HIGHLIGHT_FILE = highlight.theme
 SRC_DIR = src
 TEX_DIR = tex
 FIG_DIR = fig
+STY_DIR = sty
 BIB_DIR = bib
 OUT_DIR = out
 
@@ -20,15 +21,15 @@ FILES=`cat toctree.txt`
 
 pdf:
 	@mkdir -p $(OUT_DIR)
-	pandoc                        		\
-	  --from         markdown     		\
-	  --to           latex        		\
-	  --out          $(OUT_DIR)/$(OUT_FILE) \
-	  --template     $(TEX_DIR)/$(TEX_FILE) \
-	  --pdf-engine   xelatex      		\
-	  --resource-path=.:$(FIG_DIR)		\
-	  --highlight-style $(HIGHLIGHT_FILE)	\
-	  --bibliography $(BIB_DIR)/$(BIB_FILE) \
+	pandoc                        				\
+	  --from         markdown     				\
+	  --to           latex        				\
+	  --out          $(OUT_DIR)/$(OUT_FILE) 		\
+	  --template     $(TEX_DIR)/$(TEX_FILE) 		\
+	  --pdf-engine   xelatex      				\
+	  --resource-path=.:$(FIG_DIR)				\
+	  --highlight-style $(STY_DIR)/$(HIGHLIGHT_FILE)	\
+	  --bibliography $(BIB_DIR)/$(BIB_FILE) 		\
 	  $(FILES)
 
 format:
