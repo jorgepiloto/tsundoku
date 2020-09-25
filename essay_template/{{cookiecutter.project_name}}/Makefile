@@ -28,7 +28,7 @@ pdf:
 	  --pdf-engine   xelatex      		\
 	  --resource-path=.:$(FIG_DIR)		\
 	  --highlight-style $(HIGHLIGHT_FILE)	\
-	  --bibliography $(BIB_DIR)		\
+	  --bibliography $(BIB_DIR)/$(BIB_FILE) \
 	  $(FILES)
 
 format:
