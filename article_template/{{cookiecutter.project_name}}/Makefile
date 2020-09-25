@@ -14,7 +14,7 @@ pdf:
 	  --from         markdown     		\
 	  --to           latex        		\
 	  --out          $(OUT_DIR)/report.pdf 	\
-	  --template     template.tex 		\
+	  --template     tex/template.tex 	\
 	  --pdf-engine   xelatex      		\
 	  --resource-path=.:fig			\
 	  --bibliography biblio.bib		\
