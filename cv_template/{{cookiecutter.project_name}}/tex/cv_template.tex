@@ -1,0 +1,66 @@
+% ---- Document class and attributes --- %
+\documentclass[12pt, courier]{article}
+
+% ---- Required packages --- %
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage[a4paper, vmargin=2.5cm,hmargin=2.5cm]{geometry}
+
+% --- Custom title --- %
+
+% --- Select section and subsections colors --- %
+%\titleformat{<command>}[<shape>]{<format>}{<label>}{<sec>}{<before-code>}[<after-code>]
+\setcounter{secnumdepth}{0}
+
+\titleformat{\section}
+  {\normalfont\fontsize{16}{21}\bfseries}
+  {\thesection}
+  {1em}
+  {\vspace{0.25cm} \color{blue} \rule[1mm]{1.5cm}{1mm} \hspace{0.25cm}}
+
+\titleformat{\subsection}
+  {\normalfont\fontsize{12}{12}\rmfamily\bfseries}
+  {\thesubsection}
+  {1em}
+  {\vspace{0.25cm} \hfill \vspace{0.25cm}}
+
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{12}{12}\rmfamily}
+  {\thesubsubsection}
+  {1em}
+  {}
+  [\vspace{-0.76cm}]
+
+% --- Customize lists --- %
+\def\tightlist{}
+\setlist{leftmargin=2.75cm}
+\renewcommand{\labelitemi}{}
+
+
+
+% --- Personal data --- %
+\title{\Huge \flushleft \vspace{-2cm} \textbf{$name$} \vspace{-2cm}}
+\date{}
+
+\begin{document}
+
+% --- Build the title --- %
+\maketitle
+
+% --- Personal information table --- %
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\textbf{Mail} & \textbf{Phone} & \textbf{Website} & \textbf{Location} \\
+$mail$ & $phone$ & $website$ & $location$                  
+\end{tabular}
+\end{table}
+
+$body$
+
+\end{document}
